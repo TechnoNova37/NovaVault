@@ -13,6 +13,7 @@
             --accent: #3b82f6;
             --accent-hover: #2563eb;
             --success: #22c55e;
+            --border: #334155;
         }
 
         * {
@@ -26,118 +27,250 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
         }
 
+        /* Top Navigation */
+        .top-nav {
+            width: 100%;
+            background-color: #111827;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--success);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--success);
+        }
+
+        .status-text {
+            color: var(--success);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Main Card */
         .card {
             background-color: var(--card-bg);
             border-radius: 16px;
             padding: 32px;
-            width: 100%;
-            max-width: 400px;
+            width: 90%;
+            max-width: 450px;
             text-align: center;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-            border: 1px solid #334155;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+        }
+
+        .icon-header {
+            font-size: 3rem;
+            margin-bottom: 12px;
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 8px;
             color: var(--text-main);
             font-weight: 700;
-            letter-spacing: -0.025em;
         }
 
-        p {
+        .subtitle {
             color: var(--text-muted);
             font-size: 0.95rem;
             margin-bottom: 24px;
             line-height: 1.5;
         }
 
+        /* Instructions Box */
+        .instructions {
+            background-color: #0f172a;
+            border: 1px dashed #475569;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .instructions h4 {
+            color: var(--text-main);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .instructions ul {
+            list-style: none;
+        }
+
+        .instructions li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        /* Button */
         .action-btn {
             background-color: var(--accent);
             color: white;
             border: none;
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: 600;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
             border-radius: 8px;
             cursor: pointer;
             width: 100%;
             transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
 
-        .action-btn:hover {
-            background-color: var(--accent-hover);
+        .action-btn:hover { background-color: var(--accent-hover); }
+        .action-btn:active { transform: scale(0.98); }
+
+        /* Fake Live Activity */
+        .live-activity {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
-        .action-btn:active {
-            transform: scale(0.98);
+        .pulse {
+            width: 6px;
+            height: 6px;
+            background-color: #eab308;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
         }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.8rem;
+            padding-bottom: 20px;
+        }
+
+        .footer a {
+            color: #64748b;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .footer a:hover { text-decoration: underline; }
 
         /* Modal Styles */
         .modal {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(15, 23, 42, 0.85);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(15, 23, 42, 0.9);
+            display: flex; justify-content: center; align-items: center;
             z-index: 1000;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(5px);
         }
 
         .modal-content {
             background-color: var(--card-bg);
             border-radius: 16px;
             padding: 32px;
-            width: 90%;
-            max-width: 350px;
+            width: 90%; max-width: 350px;
             text-align: center;
-            border: 1px solid #334155;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        .modal-content h3 {
-            margin-bottom: 12px;
-            font-size: 1.25rem;
-        }
+        .modal-content h3 { margin-bottom: 12px; font-size: 1.25rem; }
+        .modal-content p { margin-bottom: 24px; font-size: 0.9rem; min-height: 40px; }
 
-        .modal-content p {
-            margin-bottom: 24px;
-            font-size: 0.9rem;
-            min-height: 40px;
-        }
-
-        /* Modern Spinner */
         .loader {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #334155;
+            width: 45px; height: 45px;
+            border: 4px solid var(--border);
             border-top-color: var(--accent);
             border-radius: 50%;
             margin: 0 auto;
             animation: spin 1s linear infinite;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.7); }
+            70% { box-shadow: 0 0 0 6px rgba(234, 179, 8, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(234, 179, 8, 0); }
         }
     </style>
 </head>
 <body>
 
+    <div class="top-nav">
+        <div class="nav-logo">
+            <span>🛡️</span> RewardVault
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+            <div class="status-dot"></div>
+            <span class="status-text">Network Online</span>
+        </div>
+    </div>
+
     <div class="card">
-        <h2>RewardVault</h2>
-        <p>Secure Rewards Verification Portal</p>
-        <button class="action-btn" id="actionBtn" onclick="startVerification()">Proceed to Offer</button>
+        <div class="icon-header">🎁</div>
+        <h2>Unlock Your Reward</h2>
+        <p class="subtitle">Complete the secure human verification process to access your chosen reward directly to your device.</p>
+
+        <div class="instructions">
+            <h4>⚡ How it works:</h4>
+            <ul>
+                <li><span>1️⃣</span> Tap the blue button below to start.</li>
+                <li><span>2️⃣</span> Complete one quick sponsor task.</li>
+                <li><span>3️⃣</span> Your content unblocks automatically.</li>
+            </ul>
+        </div>
+
+        <button class="action-btn" id="actionBtn" onclick="startVerification()">
+            🔒 Proceed to Verification
+        </button>
+
+        <div class="live-activity">
+            <div class="pulse"></div>
+            <span id="tickerText">User 84*** just unlocked a reward.</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>🔒 Secured by 256-bit AES Encryption</p>
+        <div style="margin-top: 12px;">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+        </div>
+        <p style="margin-top: 8px;">© 2026 RewardVault Network. All rights reserved.</p>
     </div>
 
     <div id="loadingModal" class="modal" style="display: none;">
@@ -149,25 +282,26 @@
     </div>
 
     <script>
+        // Simple script to change the ticker text every few seconds for social proof
+        const names = ["User 84***", "User 12***", "User 99***", "User 43***", "User 77***"];
+        setInterval(() => {
+            const randomUser = names[Math.floor(Math.random() * names.length)];
+            document.getElementById('tickerText').innerText = `${randomUser} just unlocked a reward.`;
+        }, 4500);
+
         function startVerification() {
-            // Show the loading modal
             document.getElementById('loadingModal').style.display = 'flex';
             
-            // Step 1: Initializing
             setTimeout(() => {
                 document.getElementById('modalStatus').style.color = "#94a3b8";
-                document.getElementById('modalStatus').innerText = "Verifying device parameters...";
+                document.getElementById('modalStatus').innerText = "Verifying device parameters and IP...";
                 
-                // Step 2: Verifying
                 setTimeout(() => {
                     document.getElementById('modalStatus').style.color = "#22c55e";
                     document.getElementById('modalStatus').innerText = "Connection established securely. Redirecting...";
                     
-                    // Step 3: Redirection
                     setTimeout(() => {
-                        /* PASTE YOUR NEW LINK BELOW:
-                           Replace the URL inside the quotes with your live OGAds SmartLink or Content Locker URL.
-                        */
+                        /* PASTE YOUR LIVE OGADS OR CPA LINK HERE */
                         window.location.href = "YOUR_OGADS_OR_CPA_LINK_HERE"; 
                     }, 1200);
                     
