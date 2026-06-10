@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaVault - Secure Verification</title>
+    <title>Promo Rewards Portal - Claim Your Voucher</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --success: #22c55e;
-            --border: #334155;
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --accent-pink: #f43f5e;
+            --accent-hover: #e11d48;
+            --border-color: #e5e7eb;
+            --success: #10b981;
         }
 
         * {
@@ -32,277 +32,326 @@
             min-height: 100vh;
         }
 
-        /* Top Navigation */
-        .top-nav {
+        /* Sleek Top Header Bar */
+        .header-bar {
             width: 100%;
-            background-color: #111827;
-            padding: 16px 24px;
+            background-color: #ffffff;
+            padding: 14px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
         }
 
-        .nav-logo {
-            font-weight: 700;
-            font-size: 1.2rem;
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             color: var(--text-main);
+        }
+
+        .live-status {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            background-color: #f3f4f6;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--success);
         }
 
-        .status-dot {
-            width: 8px;
-            height: 8px;
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
             background-color: var(--success);
             border-radius: 50%;
-            box-shadow: 0 0 8px var(--success);
+            animation: pulse 1.4s infinite;
         }
 
-        .status-text {
-            color: var(--success);
-            font-size: 0.85rem;
-            font-weight: 600;
+        /* Container Layout */
+        .main-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
         }
 
-        /* Main Card */
-        .card {
+        .reward-card {
             background-color: var(--card-bg);
-            border-radius: 16px;
-            padding: 32px;
-            width: 90%;
-            max-width: 450px;
+            border-radius: 20px;
+            padding: 32px 24px;
+            width: 100%;
+            max-width: 420px;
             text-align: center;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--border);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
         }
 
-        .icon-header {
-            font-size: 3rem;
-            margin-bottom: 12px;
+        /* Beautiful Mock Voucher Card */
+        .voucher-graphic {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            border-radius: 14px;
+            padding: 24px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.2);
         }
 
+        .voucher-logo {
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            opacity: 0.8;
+        }
+
+        .voucher-value {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 12px 0 4px 0;
+            letter-spacing: -1px;
+        }
+
+        .voucher-type {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #9ca3af;
+        }
+
+        .voucher-chip {
+            width: 32px;
+            height: 24px;
+            background-color: #ecc94b;
+            border-radius: 4px;
+            margin-left: auto;
+            opacity: 0.8;
+        }
+
+        /* Text Content */
         h2 {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
+            font-weight: 700;
             margin-bottom: 8px;
-            color: var(--text-main);
+            letter-spacing: -0.3px;
+        }
+
+        .info-p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        /* Claim Steps Breakdown */
+        .step-list {
+            background-color: #f9fafb;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: left;
+            margin-bottom: 24px;
+            border: 1px solid var(--border-color);
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: #4b5563;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .step-item:last-child { margin-bottom: 0; }
+
+        .step-number {
+            background-color: #111827;
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
             font-weight: 700;
         }
 
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 24px;
-            line-height: 1.5;
-        }
-
-        /* Instructions Box */
-        .instructions {
-            background-color: #0f172a;
-            border: 1px dashed #475569;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 24px;
-            text-align: left;
-        }
-
-        .instructions h4 {
-            color: var(--text-main);
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .instructions ul {
-            list-style: none;
-        }
-
-        .instructions li {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        /* Button */
-        .action-btn {
-            background-color: var(--accent);
+        /* High-Converting Accent Button */
+        .claim-btn {
+            background-color: var(--accent-pink);
             color: white;
             border: none;
             padding: 16px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             width: 100%;
             transition: background-color 0.2s ease, transform 0.1s ease;
-            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3);
         }
 
-        .action-btn:hover { background-color: var(--accent-hover); }
-        .action-btn:active { transform: scale(0.98); }
+        .claim-btn:hover { background-color: var(--accent-hover); }
+        .claim-btn:active { transform: scale(0.98); }
 
-        /* Fake Live Activity */
-        .live-activity {
-            margin-top: 24px;
-            padding-top: 16px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .pulse {
-            width: 6px;
-            height: 6px;
-            background-color: #eab308;
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 40px;
-            text-align: center;
-            color: #64748b;
+        /* Real-time Counter Ticker */
+        .live-ticker {
+            margin-top: 20px;
             font-size: 0.8rem;
-            padding-bottom: 20px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Compliance Footer */
+        .footer {
+            width: 100%;
+            padding: 24px;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.75rem;
+            border-top: 1px solid var(--border-color);
+            background-color: #ffffff;
         }
 
         .footer a {
-            color: #64748b;
+            color: #9ca3af;
             text-decoration: none;
-            margin: 0 8px;
+            margin: 0 6px;
         }
 
         .footer a:hover { text-decoration: underline; }
 
-        /* Modal Styles */
+        /* Modal Structure */
         .modal {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(15, 23, 42, 0.9);
+            background-color: rgba(0, 0, 0, 0.4);
             display: flex; justify-content: center; align-items: center;
             z-index: 1000;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(4px);
         }
 
         .modal-content {
-            background-color: var(--card-bg);
+            background-color: #ffffff;
             border-radius: 16px;
-            padding: 32px;
-            width: 90%; max-width: 350px;
+            padding: 32px 24px;
+            width: 85%; max-width: 340px;
             text-align: center;
-            border: 1px solid var(--border);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
         }
 
-        .modal-content h3 { margin-bottom: 12px; font-size: 1.25rem; }
-        .modal-content p { margin-bottom: 24px; font-size: 0.9rem; min-height: 40px; }
+        .modal-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+        .modal-status { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px; min-height: 36px; }
 
-        .loader {
-            width: 45px; height: 45px;
-            border: 4px solid var(--border);
-            border-top-color: var(--accent);
+        .spinner {
+            width: 40px; height: 40px;
+            border: 3px solid #f3f4f6;
+            border-top-color: var(--accent-pink);
             border-radius: 50%;
             margin: 0 auto;
-            animation: spin 1s linear infinite;
+            animation: spin 0.8s linear infinite;
         }
 
         @keyframes spin { to { transform: rotate(360deg); } }
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.7); }
-            70% { box-shadow: 0 0 0 6px rgba(234, 179, 8, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(234, 179, 8, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-nav">
-        <div class="nav-logo">
-            <span>🛡️</span> NovaVault
-        </div>
-        <div style="display: flex; align-items: center; gap: 6px;">
-            <div class="status-dot"></div>
-            <span class="status-text">Network Online</span>
+    <div class="header-bar">
+        <div class="logo-text">PROMO REWARDS</div>
+        <div class="live-status">
+            <div class="pulse-dot"></div>
+            <span>Vouchers Available</span>
         </div>
     </div>
 
-    <div class="card">
-        <div class="icon-header">🎁</div>
-        <h2>Unlock Your Reward</h2>
-        <p class="subtitle">Complete the secure human verification process to access your chosen reward directly to your device.</p>
+    <div class="main-container">
+        <div class="reward-card">
+            
+            <div class="voucher-graphic">
+                <div class="voucher-logo">SHOPPERS SPECIAL</div>
+                <div class="voucher-value">$750</div>
+                <div class="voucher-type">E-Gift Card Promo</div>
+                <div class="voucher-chip"></div>
+            </div>
 
-        <div class="instructions">
-            <h4>⚡ How it works:</h4>
-            <ul>
-                <li><span>1️⃣</span> Tap the blue button below to start.</li>
-                <li><span>2️⃣</span> Complete one quick sponsor task.</li>
-                <li><span>3️⃣</span> Your content unblocks automatically.</li>
-            </ul>
-        </div>
+            <h2>Claim Your Promotional Reward</h2>
+            <p class="info-p">Validate your active session parameters to release your promotional code allocation balance.</p>
 
-        <button class="action-btn" id="actionBtn" onclick="startVerification()">
-            🔒 Proceed to Verification
-        </button>
+            <div class="step-list">
+                <div class="step-item"><div class="step-number">1</div> Initialize Secure Allocation</div>
+                <div class="step-item"><div class="step-number">2</div> Complete 1 Sponsor Verification Action</div>
+                <div class="step-item"><div class="step-number">3</div> Voucher Delivers Automatically</div>
+            </div>
 
-        <div class="live-activity">
-            <div class="pulse"></div>
-            <span id="tickerText">User 84*** just unlocked a reward.</span>
+            <button class="claim-btn" id="claimBtn" onclick="initializeClaim()">
+                Claim Gift Card
+            </button>
+
+            <div class="live-ticker" id="liveTicker">
+                Allocation checked 2 minutes ago from New York, US.
+            </div>
         </div>
     </div>
 
     <div class="footer">
-        <p>🔒 Secured by 256-bit AES Encryption</p>
-        <div style="margin-top: 12px;">
-            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+        <div style="margin-bottom: 8px;">
+            <a href="#">Privacy Terms</a> | <a href="#">User Agreement</a> | <a href="#">Support Help</a>
         </div>
-        <p style="margin-top: 8px;">© 2026 NovaVault Network. All rights reserved.</p>
+        <p>© 2026 Rewards Distribution Network. Valid for regional promotional campaigns only. All trademarks property of respective owners.</p>
     </div>
 
     <div id="loadingModal" class="modal" style="display: none;">
         <div class="modal-content">
-            <h3>Security Check</h3>
-            <p id="modalStatus">Initializing secure session...</p>
-            <div class="loader"></div>
+            <div class="modal-title">Securing Connection</div>
+            <p id="modalStatus" class="modal-status">Connecting to promotional database...</p>
+            <div class="spinner"></div>
         </div>
     </div>
 
     <script>
-        // Simple script to change the ticker text every few seconds for social proof
-        const names = ["User 84***", "User 12***", "User 99***", "User 43***", "User 77***"];
+        // Simulated geo-targeted tracking ticker for pop traffic realism
+        const US_Cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Miami"];
         setInterval(() => {
-            const randomUser = names[Math.floor(Math.random() * names.length)];
-            document.getElementById('tickerText').innerText = `${randomUser} just unlocked a reward.`;
-        }, 4500);
+            const randomCity = US_Cities[Math.floor(Math.random() * US_Cities.length)];
+            const randomTime = Math.floor(Math.random() * 4) + 1;
+            document.getElementById('liveTicker').innerText = `Allocation checked ${randomTime} minutes ago from ${randomCity}, US.`;
+        }, 5000);
 
-        function startVerification() {
+        function initializeClaim() {
+            // Unveil the loading script panel
             document.getElementById('loadingModal').style.display = 'flex';
             
             setTimeout(() => {
-                document.getElementById('modalStatus').style.color = "#94a3b8";
-                document.getElementById('modalStatus').innerText = "Verifying device parameters and IP...";
+                document.getElementById('modalStatus').innerText = "Validating available gift card sequences...";
                 
                 setTimeout(() => {
-                    document.getElementById('modalStatus').style.color = "#22c55e";
-                    document.getElementById('modalStatus').innerText = "Connection established securely. Redirecting...";
+                    document.getElementById('modalStatus').style.color = "#10b981";
+                    document.getElementById('modalStatus').innerText = "Voucher allocated! Initializing secure locker gateway...";
                     
                     setTimeout(() => {
-                        /* PASTE YOUR LIVE OGADS OR CPA LINK HERE */
-                        window.location.href = "YOUR_OGADS_OR_CPA_LINK_HERE"; 
+                        /* PASTE YOUR CODE LOCKER INTEGRATION SCRIPT CALL HERE:
+                           When you save your OGAds locker, replace this line with the script action they give you.
+                        */
+                        alert("Locker triggers here!"); 
                     }, 1200);
                     
                 }, 1800);
